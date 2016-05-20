@@ -27,7 +27,25 @@ db:
 
 // SELECT * FROM 'posts'
 $posts = db('example')->select('posts', '*');
-print_r($posts);
+
+// SELECT * FROM 'posts' WHERE 'status' = 1
+$posts = db('example')->select('posts', '*', array(
+    'status' => 1
+));
+
+// INSERT
+$insert = db('example')->insert('posts', array(
+    'title' => 'Hello World',
+    'content' => 'My post content',
+    'status' => 1
+));
+
+// UPDATE
+$update = db('example')->update('posts', array(
+    'title' => 'Updated Hello World'
+), array(
+    'id' => 234
+));
 ```
 
 #### Query Syntax
